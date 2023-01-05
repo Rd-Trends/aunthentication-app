@@ -1,8 +1,9 @@
-import nextConnect from "next-connect";
-import init from "../../../../middleware/init";
-import passport from "../../../../lib/passportTwitter";
-import { NextApiReq } from "../../../../interface";
 import { NextApiResponse } from "next";
+import nextConnect from "next-connect";
+
+import { NextApiReq } from "../../../../interface";
+import passport from "../../../../lib/passportTwitter";
+import init from "../../../../middleware/init";
 
 const handler = nextConnect();
 

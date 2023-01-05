@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from "react";
-import Logo from "../../components/Logo";
-import { MdEmail, MdLock } from "react-icons/md";
-import Button from "../../components/Button";
+import { yupResolver } from "@hookform/resolvers/yup";
+import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import useUser from "../../hooks/useUser";
+import { MdEmail, MdLock } from "react-icons/md";
 import * as yup from "yup";
+
+import Button from "../../components/Button";
 import Footer from "../../components/Footer";
-import Head from "next/head";
+import Logo from "../../components/Logo";
+import useUser from "../../hooks/useUser";
 
 interface formData {
   email: string;

@@ -1,6 +1,6 @@
+import classNames from "classnames";
 import Link from "next/link";
 import React from "react";
-import classNames from "classnames";
 
 const Footer = ({ className = "" }: { className: string }) => {
   return (

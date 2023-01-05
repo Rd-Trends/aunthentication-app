@@ -1,18 +1,19 @@
-import Head from "next/head";
-import { useRouter } from "next/router";
-import useUser from "../hooks/useUser";
-import Navbar from "../components/Navbar";
-import { useEffect, useState } from "react";
-import Link from "next/link";
-import { MdCameraAlt, MdChevronLeft } from "react-icons/md";
-import Footer from "../components/Footer";
-import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import Head from "next/head";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+import { MdCameraAlt, MdChevronLeft } from "react-icons/md";
 // import useUser from "../hooks/useUser";
 import * as yup from "yup";
-import Input from "../components/Input";
+
 import Button from "../components/Button";
+import Footer from "../components/Footer";
+import Input from "../components/Input";
 import Loader from "../components/Loader";
+import Navbar from "../components/Navbar";
+import useUser from "../hooks/useUser";
 
 interface formData {
   email: string;

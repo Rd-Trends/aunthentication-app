@@ -1,6 +1,7 @@
 import nextConnect from "next-connect";
-import init from "../../../../middleware/init";
+
 import passport from "../../../../lib/passportFacebook";
+import init from "../../../../middleware/init";
 
 const handler = nextConnect();
 

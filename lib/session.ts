@@ -1,6 +1,6 @@
-import session from "express-session";
 import MongoStore from "connect-mongo";
-import { Request, Response, NextFunction } from "express-serve-static-core";
+import { NextFunction,Request, Response } from "express-serve-static-core";
+import session from "express-session";
 
 export default function (req: Request, res: Response, next: NextFunction) {
   const mongo = process.env.MONGODB_URI;

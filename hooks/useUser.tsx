@@ -1,4 +1,5 @@
 import useSWR from "swr";
+
 import { user } from "../interface";
 
 const useUser = () => {

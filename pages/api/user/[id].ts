@@ -1,13 +1,14 @@
-import nextConnect from "next-connect";
+import bcrypt from "bcrypt";
+import { v2 as cloudinary } from "cloudinary";
+import dataURI from "datauri/parser";
+import multer from "multer";
 import { NextApiResponse } from "next";
+import nextConnect from "next-connect";
+import path from "path";
+
 import { NextApiReq } from "../../../interface";
 import init from "../../../middleware/init";
-import multer from "multer";
-import { v2 as cloudinary } from "cloudinary";
-import path from "path";
-import dataURI from "datauri/parser";
 import User from "../../../models/userModel";
-import bcrypt from "bcrypt";
 
 const dataUri = new dataURI();
 const storage = multer.memoryStorage();
@@ -22,15 +23,18 @@ handler
     const { name, email, bio, phone, password } = req.body;
     const { id } = req.query;
     let [user] = await User.find({ _id: id });
+    let updatedPhoto = "";
 
     if (req.file) {
       const photo = dataUri.format(
         path.extname(req.file.originalname),
         req.file.buffer
       ).content;
+
       cloudinary.uploader
         .upload(photo!, { folder: "authentication-app", public_id: name })
         .then(async (result) => {
+          updatedPhoto = result.secure_url;
           user.photo = result.secure_url;
           await user.save();
         });
@@ -51,7 +55,7 @@ handler
       email: updatedUser.email,
       phone: updatedUser.phone,
       bio: updatedUser.bio,
-      photo: updatedUser.photo,
+      photo: updatedPhoto ?? updatedUser.photo,
     };
     return res.status(200).json(updatedUser);
   });

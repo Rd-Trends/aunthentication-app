@@ -1,12 +1,13 @@
+import { Inter } from "@next/font/google";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { Inter } from "@next/font/google";
-import useUser from "../hooks/useUser";
-import Navbar from "../components/Navbar";
 import { useEffect } from "react";
+
 import Footer from "../components/Footer";
-import UserDetails from "../components/UserDetails";
 import Loader from "../components/Loader";
+import Navbar from "../components/Navbar";
+import UserDetails from "../components/UserDetails";
+import useUser from "../hooks/useUser";
 
 const inter = Inter({ subsets: ["latin"] });
 

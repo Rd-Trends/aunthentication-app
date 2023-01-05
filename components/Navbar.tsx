@@ -1,16 +1,17 @@
-import React, { useState } from "react";
-import Link from "next/link";
-import Logo from "./Logo";
-import useUser from "../hooks/useUser";
 import Image from "next/image";
-import { fancyDisplayedName } from "../utils/fancyDisplayName";
+import Link from "next/link";
+import React, { useState } from "react";
 import { FaCaretDown } from "react-icons/fa";
 import {
-  MdPersonPinCircle,
-  MdPerson,
-  MdPeople,
   MdLogout,
+  MdPeople,
+  MdPerson,
+  MdPersonPinCircle,
 } from "react-icons/md";
+
+import useUser from "../hooks/useUser";
+import { fancyDisplayedName } from "../utils/fancyDisplayName";
+import Logo from "./Logo";
 
 const Navbar = () => {
   const [showDropDown, setShowDropDown] = useState<boolean>(false);

@@ -1,7 +1,8 @@
 import nextConnect from "next-connect";
-import session from "../lib/session";
+
 import dbConnect from "../lib/dbConnect";
 import passport from "../lib/passportGoogle";
+import session from "../lib/session";
 
 const init = nextConnect();
 

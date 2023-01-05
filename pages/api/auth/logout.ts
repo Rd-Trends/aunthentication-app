@@ -1,5 +1,6 @@
-import nextConnect from "next-connect";
 import { NextApiResponse } from "next";
+import nextConnect from "next-connect";
+
 import { NextApiReq } from "../../../interface";
 import init from "../../../middleware/init";
 

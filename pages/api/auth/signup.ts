@@ -1,11 +1,12 @@
-import nextConnect from "next-connect";
+import bcrypt from "bcrypt";
 import { NextApiResponse } from "next";
-import { NextApiReq } from "../../../interface";
-import User from "../../../models/userModel";
-import init from "../../../middleware/init";
+import nextConnect from "next-connect";
 import isEmail from "validator/lib/isEmail";
 import normalizeEmail from "validator/lib/normalizeEmail";
-import bcrypt from "bcrypt";
+
+import { NextApiReq } from "../../../interface";
+import init from "../../../middleware/init";
+import User from "../../../models/userModel";
 
 const handler = nextConnect();
 

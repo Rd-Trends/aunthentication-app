@@ -1,5 +1,6 @@
 import { NextApiResponse } from "next";
 import nextConnect from "next-connect";
+
 import { NextApiReq } from "../interface";
 
 const auth = nextConnect();
