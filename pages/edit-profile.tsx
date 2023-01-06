@@ -39,6 +39,7 @@ const schema = yup.object({
 export default function EditProfile() {
   const { user, loading, mutate } = useUser();
   const [previewImage, setPreviewImage] = useState("");
+  const [isProcessing, setIsProcessing] = useState(false);
   const router = useRouter();
 
   const {
@@ -60,6 +61,7 @@ export default function EditProfile() {
   }
 
   const updateUserInfo = handleSubmit(async (data) => {
+    setIsProcessing(true);
     let formData = new FormData();
     Object.keys(data).forEach((key) =>
       formData.append(key, data[key as keyof formData]!)
@@ -75,6 +77,10 @@ export default function EditProfile() {
       const data = await res.json();
       mutate(data);
       router.push("/");
+    }
+
+    if (res.status >= 400) {
+      setIsProcessing(false);
     }
   });
 
@@ -115,7 +121,9 @@ export default function EditProfile() {
                       src={
                         previewImage
                           ? previewImage
-                          : user?.photo ?? "/photo.png"
+                          : user?.photo
+                          ? user?.photo
+                          : "/photo.png"
                       }
                       className="rounded-lg w-[72px] h-[72px] object-center object-cover"
                       alt=""
@@ -197,7 +205,9 @@ export default function EditProfile() {
                   placeholder="Enter your new password..."
                   className="mb-6 w-full max-w-[420px]"
                 />
-                <Button className="px-8">Save</Button>
+                <Button className="px-8" loading={isProcessing}>
+                  Save
+                </Button>
               </form>
             </div>
           </main>
